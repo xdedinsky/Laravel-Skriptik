@@ -30,8 +30,33 @@ class MainTaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'result' => 'required',
+            'level' => 'required|integer',
+        ]);
+ 
+        $mainTask = new MainTask;
+        $mainTask->name = $validatedData['name'];
+        $mainTask->description = $validatedData['description'];
+        $mainTask->result = $validatedData['result'];
+        $mainTask->level = $validatedData['level'];
+        if ($validatedData['level'] == 1) {
+            $mainTask->points = 1;
+        } elseif ($validatedData['level'] == 2) {
+            $mainTask->points = 2;
+        } elseif ($validatedData['level'] == 3) {
+            $mainTask->points = 3;
+        } elseif ($validatedData['level'] == 4) {
+            $mainTask->points = 6;
+        }
+        $mainTask->save();
+ 
+        return redirect()->back()->with('success', 'Úloha bola úspešne pridaná.');;
     }
+ 
 
     /**
      * Display the specified resource.
@@ -112,7 +137,7 @@ class MainTaskController extends Controller
             'points' => 2,
             'name' => 'Objem kocky',
             'description' => 'Stavbár Jano kúpil kvádry v tvare kocky, ktorá má hranu 1.2m, vypočítajte objem tejto kocky a vypíšte ho do konzoly v tvare desatinného čísla.',
-            'result' => '1,728',
+            'result' => '1.728',
         ]);
 
         MainTask::create([
@@ -120,7 +145,7 @@ class MainTaskController extends Controller
             'points' => 3,
             'name' => 'Výpis čísel',
             'description' => 'Vypíšte do konzoly čísla od 1 do 10 oddelné medzerou.',
-            'result' => '1 2 3 4 5 6 7 8 9 10',
+            'result' => '1 2 3 4 5 6 7 8 9 10 ',
         ]);
 
         MainTask::create([
@@ -136,16 +161,22 @@ class MainTaskController extends Controller
             'points' => 3,
             'name' => 'Výpis čísel (2)',
             'description' => 'Vypíšte do konzoly všetky párne čísla od 1 po 45 oddelené medzerou, vynechajte číslo 10.',
-            'result' => '2 4 6 8 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44',
+            'result' => '2 4 6 8 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 ',
         ]);
 
         MainTask::create([
-            'level' => 4,
-            'points' => 6,
-            'name' => 'Stromček z hviezdičiek',
-            'description' => 'Pomocou for cyklu vypíšte do konzoly stromček z hviezdičiek, ktorý bude mať 5 riadkov. bude vypadať takto: XXXX*XXXX\nXXX***XXX\nXX*****XX\nX*******X\n*********',
-            'result' => 'XXXX*XXXX\nXXX***XXX\nXX*****XX\nX*******X\n*********',
-        ]);
+    'level' => 4,
+    'points' => 6,
+    'name' => 'Stromček z hviezdičiek',
+    'description' => 'Pomocou for cyklu vypíšte do konzoly stromček z hviezdičiek, ktorý bude mať 5 riadkov. bude vypadať takto: XXXX*XXXX\nXXX***XXX\nXX*****XX\nX*******X\n*********',
+    'result' => '    *' . "\n" .
+                '   ***' . "\n" .
+                '  *****' . "\n" .
+                ' *******' . "\n" .
+                '*********',
+]);
+
         return "Záznam bol úspešne vytvorený.";
     }
 }
+

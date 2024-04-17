@@ -9,8 +9,17 @@ class LevelBonusController extends Controller
 {
     public function index()
     {
+        $user_id = auth()->user()->id; 
+
         $tasks = DB::table('main_tasks')->where('level', 4)->get();
-        
-        return view('tasks.levelBonus', ['tasks' => $tasks]);
+
+        $completedTasks = DB::table('list_tasks_done')
+                            ->where('user_id', $user_id)
+                            ->pluck('task_id')->all();
+
+        return view('tasks.levelBonus', [
+            'tasks' => $tasks,
+            'completedTasks' => $completedTasks
+        ]);
     }
 }

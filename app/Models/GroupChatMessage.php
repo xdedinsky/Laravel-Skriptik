@@ -5,9 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MainTask extends Model
+class GroupChatMessage extends Model
 {
     use HasFactory;
-    protected $table = 'main_tasks';
-    protected $fillable = ['level', 'points', 'name', 'description', 'result'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

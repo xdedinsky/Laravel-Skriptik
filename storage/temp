@@ -1,0 +1,23 @@
+.ladder-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3em;
+}
+.user-frame {
+    border: 3px solid #4CAF50; /* Zelená farba pre všetkých okrem top 3 */
+    padding: 10px;
+    margin: 5px;
+    width: 50%;
+    text-align: center;
+}
+.first-place {
+    border-color: #FFD700; /* Zlatá farba */
+}
+.second-place {
+    border-color: #C0C0C0; /* Strieborná farba */
+}
+.third-place {
+    border-color: #CD7F32; /* Bronzová farba */
+}

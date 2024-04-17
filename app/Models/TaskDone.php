@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MainTask extends Model
+class TaskDone extends Model
 {
+    protected $table = 'list_tasks_done';
     use HasFactory;
-    protected $table = 'main_tasks';
-    protected $fillable = ['level', 'points', 'name', 'description', 'result'];
+    protected $fillable = ['user_id', 'task_id', 'points'];
 }

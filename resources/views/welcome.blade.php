@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Mladý Kóder</title>
+        <title>Skriptík</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('storage/yellowrobot.ico') }}">
         <link href="{{ asset('storage/css/styles.css') }}" rel="stylesheet" type="text/css" >
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -16,17 +16,14 @@
     <body>
         <div class="navbar">
                 <div class="animated-title">
-                    <div class="letter">M</div>
-                    <div class="letter">L</div>
-                    <div class="letter">A</div>
-                    <div class="letter">D</div>
-                    <div class="letter">Ý</div>
-                    <div class="letterSpace"> </div>
+                    <div class="letter">S</div>
                     <div class="letter">K</div>
-                    <div class="letter">Ó</div>
-                    <div class="letter">D</div>
-                    <div class="letter">E</div>
                     <div class="letter">R</div>
+                    <div class="letter">I</div>
+                    <div class="letter">P</div>
+                    <div class="letter">T</div>
+                    <div class="letter">Í</div>
+                    <div class="letter">K</div>
                 </div>
                 @if (Route::has('login'))
                     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
@@ -44,7 +41,7 @@
         </div>
 
         <div class="intro-container">
-            <h1 class="intro-heading">Vitajte na stránke "Mladý kóder"!</h1>
+            <h1 class="intro-heading">Vitajte na stránke "Skriptík"!</h1>
             <p class="intro-text-white">Ak sa chceš učiť programovať je potrebné sa zaregistrovať</p>
             <p class="intro-text-white">Ak už si zaregistrovaný tak sa prihlás aby si mohol pokračovať</p>
         </div>
