@@ -67,28 +67,22 @@
     <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Code-Runner-Web-Component@main/dist/code-runner-wc.min.js" defer></script>
     <script> 
             function stringCompare(str1, str2) {
-                // Rozdeliť reťazce na riadky
                 const lines1 = str1.trim().split('\n');
                 const lines2 = str2.trim().split('\n');
 
-                // Porovnať počet riadkov
                 if (lines1.length !== lines2.length) {
                     return false;
                 }
 
-                // Porovnať každý riadok samostatne
                 for (let i = 0; i < lines1.length; i++) {
-                    // Odstrániť medzery na začiatku a konci riadkov
                     const trimmedLine1 = lines1[i].trim();
                     const trimmedLine2 = lines2[i].trim();
                     
-                    // Porovnať riadky
                     if (trimmedLine1 !== trimmedLine2) {
                         return false;
                     }
                 }
 
-                // Všetky riadky sú rovnaké
                 return true;
             }
 

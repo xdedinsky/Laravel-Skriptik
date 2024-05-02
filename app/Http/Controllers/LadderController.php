@@ -23,10 +23,10 @@ class LadderController extends Controller
     
     public function getUserPoints()
     {
-        $userId = auth()->user()->id; // Získajte ID prihláseného používateľa
+        $userId = auth()->user()->id; 
         $points = \DB::table('list_tasks_done')
                     ->where('user_id', $userId)
-                    ->sum('points'); // Súčet bodov pre daného používateľa
+                    ->sum('points'); 
 
         return $points;
     }

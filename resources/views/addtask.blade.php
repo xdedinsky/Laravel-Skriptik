@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')  
+@if (!Auth::user()->making_tasks == 1) 
+    <script>window.location.href = '/home';</script>
+@endif
+
     <div class="info-task-add">
         <h2>Úrovne</h2>
         <li> 1. úroveň -> Úroveň úlohy = 1</li> 
@@ -11,7 +15,7 @@
         <h2>Výsledok úlohy</h2>
         <a> Výsledok úlohy treba dobre zvážiť vrátane " " na konci reťazca</a>
         <br>
-        <a> Viacej riadkov zapisujte následovne: Ahoj\nAko\nSa\nMas</a>
+        <a> Viacej riadkov zapisujte pomocou stlačenia enter.</a>
     </div>
 
 

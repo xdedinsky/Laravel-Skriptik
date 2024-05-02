@@ -20,7 +20,7 @@ class TaskDoneController extends Controller
                                     ->exists();
 
         if ($taskDoneAlready) {
-            return response()->json(['error' => 'Task already completed by the user'], 409);
+            return response()->json(['error' => 'Danú úlohu ste už odovzdali!'], 409);
         }
 
         $taskDone = new TaskDone();
